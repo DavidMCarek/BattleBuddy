@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BattleBuddy.Infrastructure.Migrations
 {
     [DbContext(typeof(BattleBuddyDbContext))]
-    [Migration("20250410151718_InitialCreate")]
+    [Migration("20250410153332_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />

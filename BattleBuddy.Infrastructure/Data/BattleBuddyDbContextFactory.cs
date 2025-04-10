@@ -10,7 +10,7 @@ namespace BattleBuddy.Infrastructure.Data
         public BattleBuddyDbContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<BattleBuddyDbContext>();
-            optionsBuilder.UseSqlite("Data Source=blog.db");
+            optionsBuilder.UseSqlite("Data Source=BattleBuddy.db");
 
             return new BattleBuddyDbContext(optionsBuilder.Options);
         }
