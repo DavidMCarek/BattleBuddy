@@ -8,4 +8,5 @@ public interface IStatusRepository
     Task<Status?> GetStatusByIdAsync(int id);
     void UpdateStatusAsync(Status status);
     Task SaveChangesAsync();
+    Task<IEnumerable<Status>> GetAllStatusesAsync();
 }

@@ -25,7 +25,7 @@ public class CharacterRepository : ICharacterRepository
         return await _context.Characters.FirstOrDefaultAsync(c => c.Id == id);
     }
 
-    public void UpdateCharacterAsync(Character character)
+    public void UpdateCharacter(Character character)
     {
         _context.Characters.Update(character);
     }
@@ -33,5 +33,11 @@ public class CharacterRepository : ICharacterRepository
     public async Task SaveChangesAsync()
     {
         await _context.SaveChangesAsync();
+    }
+
+    // In a real world scenario this would need paginated
+    public async Task<IEnumerable<Character>> GetAllCharactersAsync()
+    {
+        return await _context.Characters.ToListAsync();
     }
 }

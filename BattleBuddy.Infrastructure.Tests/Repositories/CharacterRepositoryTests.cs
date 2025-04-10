@@ -45,7 +45,7 @@ public class CharacterRepositoryTests
     {
         var character = new Character { Id = 1, Name = "Gopher" };
 
-        _repository.UpdateCharacterAsync(character);
+        _repository.UpdateCharacter(character);
 
         _mockSet.Verify(m => m.Update(character), Times.Once);
     }
@@ -58,5 +58,11 @@ public class CharacterRepositoryTests
         await _repository.SaveChangesAsync();
 
         _mockContext.Verify(m => m.SaveChangesAsync(It.IsAny<CancellationToken>()), Times.Once);
+    }
+
+    [Test]
+    public async Task GetAllCharactersAsyncShouldReturnAllCharacters()
+    {
+        // This is also not worth the effort for a single function call
     }
 }

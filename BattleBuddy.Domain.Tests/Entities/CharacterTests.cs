@@ -30,7 +30,7 @@ public class CharacterTests
     public void RemoveStatusShouldRemoveExistingStatus()
     {
         var character = new Character { Name = "Gopher" };
-        var status = new Status { Id = 1, Name = "Stunned", Description = "Lose an action" };
+        var status = new Status { Id = 1, Name = "Stunned", Description = "Lose an action." };
 
         character.AddStatus(status);
         character.RemoveStatus(status.Id);
@@ -54,15 +54,25 @@ public class CharacterTests
     [TestCase(10, 110, false)]
     public void ModifyHealthShouldUpdateHitPointsAndIsDownState(int change, int expectedHp, bool expectedDown)
     {
-        var character = new Character { Name = "Gopher", HitPoints = 100 };
+        var character = new Character { Name = "Gopher", CurrentHitPoints = 100, TotalHitPoints = 500 };
 
         character.ModifyHealth(change);
 
         Assert.Multiple(() =>
         {
-            Assert.That(character.HitPoints, Is.EqualTo(expectedHp));
+            Assert.That(character.CurrentHitPoints, Is.EqualTo(expectedHp));
             Assert.That(character.IsDown, Is.EqualTo(expectedDown));
         });
 
+    }
+
+    [Test]
+    public void ModifyHealthShouldBeCappedByTotalHitPoints()
+    {
+        var character = new Character { Name = "Fizban", CurrentHitPoints = 100, TotalHitPoints = 150 };
+
+        character.ModifyHealth(200);
+
+        Assert.That(character.CurrentHitPoints, Is.EqualTo(150));
     }
 }

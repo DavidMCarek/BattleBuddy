@@ -6,8 +6,9 @@ public class Character
     // I'll stick with an int
     public int Id { get; set; }
     public required string Name { get; set; }
-    public int HitPoints { get; set; }
-    public bool IsDown { get; private set; }
+    public int TotalHitPoints { get; set; }
+    public int CurrentHitPoints { get; set; }
+    public bool IsDown { get; set; }
     public ICollection<Status> Statuses { get; set; } = [];
 
     public void AddStatus(Status status)
@@ -32,7 +33,10 @@ public class Character
 
     public void ModifyHealth(int hpChange)
     {
-        HitPoints += hpChange;
-        IsDown = HitPoints <= 0;
+        CurrentHitPoints += hpChange;
+        IsDown = CurrentHitPoints <= 0;
+
+        if (CurrentHitPoints > TotalHitPoints)
+            CurrentHitPoints = TotalHitPoints;
     }
 }

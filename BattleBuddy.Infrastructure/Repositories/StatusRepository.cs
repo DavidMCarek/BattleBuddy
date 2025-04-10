@@ -33,4 +33,10 @@ public class StatusRepository : IStatusRepository
     {
         await _context.SaveChangesAsync();
     }
+
+    // In a real world scenario this would need paginated
+    public async Task<IEnumerable<Status>> GetAllStatusesAsync()
+    {
+        return await _context.Statuses.ToListAsync();
+    }
 }

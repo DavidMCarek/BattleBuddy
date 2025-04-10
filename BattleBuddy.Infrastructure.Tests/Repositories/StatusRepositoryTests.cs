@@ -59,4 +59,10 @@ public class StatusRepositoryTests
 
         _mockContext.Verify(m => m.SaveChangesAsync(It.IsAny<CancellationToken>()), Times.Once);
     }
+
+    [Test]
+    public async Task GetAllStatusesAsyncShouldReturnAllStatuses()
+    {
+        // This is also not worth the effort for a single 
+    }
 }

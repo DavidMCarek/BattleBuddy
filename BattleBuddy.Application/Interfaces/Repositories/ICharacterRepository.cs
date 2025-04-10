@@ -6,6 +6,7 @@ public interface ICharacterRepository
 {
     Task AddCharacterAsync(Character character);
     Task<Character?> GetCharacterByIdAsync(int id);
-    void UpdateCharacterAsync(Character character);
+    void UpdateCharacter(Character character);
     Task SaveChangesAsync();
+    Task<IEnumerable<Character>> GetAllCharactersAsync();
 }
