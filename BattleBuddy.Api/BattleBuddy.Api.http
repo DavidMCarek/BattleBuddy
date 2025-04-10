@@ -1,15 +1,46 @@
 @BattleBuddy.Api_HostAddress = http://localhost:5121
 
-GET {{BattleBuddy.Api_HostAddress}}/characters/
+### Get all characters
+GET {{BattleBuddy.Api_HostAddress}}/api/characters
 Accept: application/json
 
+###
+
+### Get character by ID
+GET {{BattleBuddy.Api_HostAddress}}/api/characters/1
+Accept: application/json
+
+###
 
 ### Create a new character
-
-POST {{BattleBuddy.Api_HostAddress}}/characters/
-Accept: application/json
+POST {{BattleBuddy.Api_HostAddress}}/api/characters
+Content-Type: application/json
 
 {
-    name: "Fizban",
-    hitPoints: 10
+  "name": "Aragorn",
+  "hitPoints": 30
 }
+
+###
+
+### Attack a character
+PUT {{BattleBuddy.Api_HostAddress}}/api/characters/1/attack/5
+Accept: application/json
+
+###
+
+### Heal a character
+PUT {{BattleBuddy.Api_HostAddress}}/api/characters/1/heal/10
+Accept: application/json
+
+###
+
+### Apply status effect to a character
+PUT {{BattleBuddy.Api_HostAddress}}/api/characters/1/status/apply/2
+Accept: application/json
+
+###
+
+### Remove status effect from a character
+PUT {{BattleBuddy.Api_HostAddress}}/api/characters/1/status/remove/2
+Accept: application/json

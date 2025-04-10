@@ -88,6 +88,16 @@ public class BattleService : IBattleService
         return _statusRepository.GetAllStatusesAsync();
     }
 
+    public Task<Character?> GetCharacterAsync(int id)
+    {
+        return _characterRepository.GetCharacterByIdAsync(id);
+    }
+
+    public Task<Status?> GetStatusAsync(int statusId)
+    {
+        return _statusRepository.GetStatusByIdAsync(statusId);
+    }
+
     public async Task<Character> HealAsync(int health, int characterId)
     {
         var character = await _characterRepository.GetCharacterByIdAsync(characterId);
@@ -96,6 +106,28 @@ public class BattleService : IBattleService
             throw new KeyNotFoundException($"Character with id '{characterId}' not found");
 
         character.ModifyHealth(health);
+
+        _characterRepository.UpdateCharacter(character);
+
+        await _characterRepository.SaveChangesAsync();
+
+        return character;
+    }
+
+    public async Task<Character> RemoveStatusEffectAsync(int statusId, int characterId)
+    {
+        var character = await _characterRepository.GetCharacterByIdAsync(characterId);
+
+        if (character == null)
+            throw new KeyNotFoundException($"Character with id '{characterId}' not found");
+
+        var status = character.Statuses.FirstOrDefault(s => s.Id == statusId);
+
+        // No need to remove a status that's not present on a character
+        if (status == null)
+            return character;
+
+        character.Statuses.Remove(status);
 
         _characterRepository.UpdateCharacter(character);
 
