@@ -70,8 +70,6 @@ public class CharacterController : ControllerBase
         return Ok(character);
     }
 
-
-
     [HttpPut("{characterId}/status/remove/{statusId}")]
     public async Task<ActionResult> RemoveStatusEffect(int characterId, int statusId)
     {

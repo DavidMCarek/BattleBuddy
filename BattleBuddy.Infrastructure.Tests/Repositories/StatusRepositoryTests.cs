@@ -63,6 +63,6 @@ public class StatusRepositoryTests
     [Test]
     public async Task GetAllStatusesAsyncShouldReturnAllStatuses()
     {
-        // This is also not worth the effort for a single 
+        // This is also not worth the effort for a single function call
     }
 }
