@@ -6,46 +6,33 @@ public class Character
     // I'll stick with an int
     public int Id { get; set; }
     public required string Name { get; set; }
-    public int HitPoints { get; private set; }
-    public bool IsDown { get; set; }
-    public bool IsNpc { get; set; }
-    public int SavesRemaining { get; set; } = 3;
-
-
-    private readonly List<Status> _statuses = [];
-    public IReadOnlyCollection<Status> Statuses => _statuses.AsReadOnly();
+    public int HitPoints { get; set; }
+    public bool IsDown { get; private set; }
+    public ICollection<Status> Statuses { get; set; } = [];
 
     public void AddStatus(Status status)
     {
-        if (_statuses.Any(s => s.Id == status.Id))
-            throw new InvalidOperationException($"Character already has a status of type {status.Name}.");
+        // Status effects don't stack so we ignore additional added statuses
+        // if they already exist on the character
+        if (Statuses.Any(s => s.Id == status.Id))
+            return;
 
-        _statuses.Add(status);
+        Statuses.Add(status);
     }
 
     public void RemoveStatus(int statusId)
     {
-        var statusToRemove = _statuses.FirstOrDefault(s => s.Id == statusId);
+        var statusToRemove = Statuses.FirstOrDefault(s => s.Id == statusId);
         // If the status is not on the character we can just do nothing here
         if (statusToRemove == null)
             return;
 
-        _statuses.Remove(statusToRemove);
+        Statuses.Remove(statusToRemove);
     }
 
-    public void TakeDamage(int hpDamage)
+    public void ModifyHealth(int hpChange)
     {
-        if (hpDamage < 0)
-            throw new ArgumentException("Character cannot take negative damage");
-
-        HitPoints -= hpDamage;
-    }
-
-    public void Heal(int hp)
-    {
-        if (hp < 0)
-            throw new ArgumentException("Character cannot heal negative hp");
-
-        HitPoints += hp;
+        HitPoints += hpChange;
+        IsDown = HitPoints <= 0;
     }
 }

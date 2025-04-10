@@ -27,8 +27,8 @@ public class BattleBuddyDbContextTests
             Name = "Test Character",
             Statuses = new List<Status>
             {
-                new Status { Id = 1, Name = "Stunned", Description = "Lose an action" },
-                new Status { Id = 2, Name = "Posioned", Description = "Lose 1 HP each turn" }
+                new() { Id = 1, Name = "Stunned", Description = "Lose an action." },
+                new() { Id = 2, Name = "Posioned", Description = "Lose 1 HP each turn." }
             }
         };
 

@@ -18,11 +18,13 @@ public class BattleBuddyDbContext : DbContext
         {
             entity.HasKey(props => props.Id);
             entity.HasMany(props => props.Statuses);
+            entity.Property(p => p.Name).HasMaxLength(100);
         });
 
         modelBuilder.Entity<Status>(entity =>
         {
             entity.HasKey(props => props.Id);
+            entity.Property(p => p.Name).HasMaxLength(100);
         });
     }
 }

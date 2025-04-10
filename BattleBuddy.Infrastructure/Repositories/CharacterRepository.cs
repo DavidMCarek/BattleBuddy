@@ -1,10 +1,11 @@
+using BattleBuddy.Application.Interfaces.Repositories;
 using BattleBuddy.Domain.Entities;
 using BattleBuddy.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace BattleBuddy.Infrastructure.Repositories;
 
-public class CharacterRepository
+public class CharacterRepository : ICharacterRepository
 {
 
     private readonly IBattleBuddyDbContext _context;
