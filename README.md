@@ -8,3 +8,5 @@ With .Net 9
 
 ## Considerations
 Typically for an app this size I wouldn't use a layered architecture since its a bit overkill but I thought it was an important demonstration.
+
+Also, I would have liked to write more unit tests but I ran out of time.
