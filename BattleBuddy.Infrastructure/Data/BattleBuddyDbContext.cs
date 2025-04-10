@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BattleBuddy.Infrastructure.Data;
 
-public class BattleBuddyDbContext : DbContext
+public class BattleBuddyDbContext : DbContext, IBattleBuddyDbContext
 {
     public DbSet<Character> Characters { get; set; }
     public DbSet<Status> Statuses { get; set; }

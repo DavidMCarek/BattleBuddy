@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleBuddy.Domain.Tests", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleBuddy.Application.Tests", "BattleBuddy.Application.Tests\BattleBuddy.Application.Tests.csproj", "{02608009-18FF-47DA-980C-DE62B23CDC15}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleBuddy.Api", "BattleBuddy.Api\BattleBuddy.Api.csproj", "{086801DF-95EA-4E49-9C84-E6925F4FD1C1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,6 +99,18 @@ Global
 		{02608009-18FF-47DA-980C-DE62B23CDC15}.Release|x64.Build.0 = Release|Any CPU
 		{02608009-18FF-47DA-980C-DE62B23CDC15}.Release|x86.ActiveCfg = Release|Any CPU
 		{02608009-18FF-47DA-980C-DE62B23CDC15}.Release|x86.Build.0 = Release|Any CPU
+		{086801DF-95EA-4E49-9C84-E6925F4FD1C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{086801DF-95EA-4E49-9C84-E6925F4FD1C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{086801DF-95EA-4E49-9C84-E6925F4FD1C1}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{086801DF-95EA-4E49-9C84-E6925F4FD1C1}.Debug|x64.Build.0 = Debug|Any CPU
+		{086801DF-95EA-4E49-9C84-E6925F4FD1C1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{086801DF-95EA-4E49-9C84-E6925F4FD1C1}.Debug|x86.Build.0 = Debug|Any CPU
+		{086801DF-95EA-4E49-9C84-E6925F4FD1C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{086801DF-95EA-4E49-9C84-E6925F4FD1C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{086801DF-95EA-4E49-9C84-E6925F4FD1C1}.Release|x64.ActiveCfg = Release|Any CPU
+		{086801DF-95EA-4E49-9C84-E6925F4FD1C1}.Release|x64.Build.0 = Release|Any CPU
+		{086801DF-95EA-4E49-9C84-E6925F4FD1C1}.Release|x86.ActiveCfg = Release|Any CPU
+		{086801DF-95EA-4E49-9C84-E6925F4FD1C1}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

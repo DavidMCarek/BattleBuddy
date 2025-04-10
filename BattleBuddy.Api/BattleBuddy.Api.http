@@ -1,0 +1,15 @@
+@BattleBuddy.Api_HostAddress = http://localhost:5121
+
+GET {{BattleBuddy.Api_HostAddress}}/characters/
+Accept: application/json
+
+
+### Create a new character
+
+POST {{BattleBuddy.Api_HostAddress}}/characters/
+Accept: application/json
+
+{
+    name: "Fizban",
+    hitPoints: 10
+}
